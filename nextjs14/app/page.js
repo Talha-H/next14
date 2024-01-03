@@ -5,7 +5,6 @@ const page = () => {
   return (
     <div>
       <h1 className="text-3xl">Home Page</h1>
-      <Link href="/about">About</Link>
     </div>
   );
 };
