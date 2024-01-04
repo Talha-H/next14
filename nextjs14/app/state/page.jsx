@@ -1,5 +1,8 @@
 "use client";
 import React, { useState } from "react";
+import { FaPlus } from "react-icons/fa";
+import { GrSubtractCircle } from "react-icons/gr";
+import { GrPowerReset } from "react-icons/gr";
 
 const page = () => {
   const [count, setCount] = useState(0);
@@ -17,24 +20,16 @@ const page = () => {
     <div className=" flex flex-col gap-y-3 justify-between items-center mt-6">
       <div className="text-center text-2xl">you Clicked {count} time </div>
       <div className="flex gap-x-5">
-        <button
-          onClick={AddOne}
-          className="text-3xl font-semibold text-red-400"
-        >
-          +
+        <button onClick={AddOne} className="btn btn-success">
+          <FaPlus size={24} />
         </button>
-        <button
-          onClick={SubOne}
-          className="text-3xl font-semibold text-red-400"
-        >
-          -
+        <button onClick={SubOne} className="btn btn-info">
+          <GrSubtractCircle size={24} />
         </button>
       </div>
-      <button
-        onClick={handleReset}
-        className="text-xl py-1 px-2 rounded-2xl bg-slate-600 transition ease-in-out delay-150 text-white hover:text-black hover:bg-transparent"
-      >
+      <button onClick={handleReset} className=" flex btn btn-error gap-x-4">
         Reset
+        <GrPowerReset size={24}/>
       </button>
     </div>
   );
