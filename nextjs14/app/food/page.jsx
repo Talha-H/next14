@@ -1,3 +1,4 @@
+import DrinkList from "@/Components/DrinkList";
 import React from "react";
 
 const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a";
@@ -7,17 +8,21 @@ const fetchDrinks = async () => {
   const response = await fetch(url);
   // Throw an error
   if (!response.ok) {
-   throw new Error('Data not fetched')
+    throw new Error("Data not fetched");
   }
 
-  const db=await response.json();
+  const db = await response.json();
   return db;
 };
 
 const page = async () => {
   const db = await fetchDrinks();
-  console.log(db);
-  return <div className="text-center">Food</div>;
+  // console.log(db);
+  return (
+    <div>
+      <DrinkList drinks={db.drinks} />
+    </div>
+  );
 };
 
 export default page;
