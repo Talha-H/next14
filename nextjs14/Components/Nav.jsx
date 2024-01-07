@@ -5,8 +5,8 @@ const links = [
   { href: "/about", name: "About" },
   { href: "/food", name: "Food" },
   { href: "/prismaEx", name: "Prisma" },
+  { href: "/tasks", name: "Tasks" },
   { href: "/state", name: "State" },
-  { href: "/clientF", name: "Client" },
 ];
 
 const Nav = () => {
