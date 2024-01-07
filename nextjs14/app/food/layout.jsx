@@ -8,7 +8,7 @@ const layoutFood = ({ children }) => {
           <code>Hello Developers!</code>
         </pre>
         <pre data-prefix="$">
-          <code>Here Is food AP</code>
+          <code>Here Is food API</code>
         </pre>
       </div>
       {children}
