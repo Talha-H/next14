@@ -1,5 +1,10 @@
 import React from "react";
 
+export const metadata = {
+  title: "Food Page",
+  description: "This Page describe how to fetch API!",
+};
+
 const layoutFood = ({ children }) => {
   return (
     <div className="max-w-xl">
