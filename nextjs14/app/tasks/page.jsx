@@ -4,7 +4,7 @@ import React from 'react'
 
 const Task = () => {
   return (
-    <div>
+    <div className='max-w-lg'>
       <TaskForm/>
       <TaskList/>
     </div>
