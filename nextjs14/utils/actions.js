@@ -19,3 +19,11 @@ export const createTask = async (getData) => {
   });
   revalidatePath("/tasks");
 };
+
+export const deleteTask = async (getData) => {
+  const id = getData.get("id");
+  await prisma.task.delete({
+    where: { id },
+  });
+  revalidatePath("tasks");
+};

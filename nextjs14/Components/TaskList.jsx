@@ -27,7 +27,7 @@ const TaskList = async () => {
               <Link href={`tasks/${task.id}`} className="btn btn-accent btn-xs">
                 edit
               </Link>
-              <DeleteForm />
+              <DeleteForm id={task.id} />
             </div>
           </li>
         );
