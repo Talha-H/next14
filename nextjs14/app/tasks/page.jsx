@@ -1,9 +1,14 @@
+import TaskForm from '@/Components/TaskForm'
+import TaskList from '@/Components/TaskList'
 import React from 'react'
 
-const page = () => {
+const Task = () => {
   return (
-    <div className='text-center text-5xl'>Tasks</div>
+    <div>
+      <TaskForm/>
+      <TaskList/>
+    </div>
   )
 }
 
-export default page
+export default Task
