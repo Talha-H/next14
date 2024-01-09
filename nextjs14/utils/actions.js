@@ -21,6 +21,7 @@ export const getAllTask = async () => {
 //   });
 //   revalidatePath("/tasks");
 // };
+
 // Create Custom Task
 export const createCustomTask = async (prevState, formData) => {
   await new Promise((resolve) => setTimeout(resolve, 2000));
