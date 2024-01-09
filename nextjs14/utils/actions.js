@@ -11,16 +11,33 @@ export const getAllTask = async () => {
   });
 };
 
-export const createTask = async (getData) => {
-  const content = getData.get("content");
-  await prisma.task.create({
-    data: {
-      content,
-    },
-  });
-  revalidatePath("/tasks");
+// Create  Task
+// export const createTask = async (getData) => {
+//   const content = getData.get("content");
+//   await prisma.task.create({
+//     data: {
+//       content,
+//     },
+//   });
+//   revalidatePath("/tasks");
+// };
+// Create Custom Task
+export const createCustomTask = async (prevState, formData) => {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+  const content = formData.get("content");
+  try {
+    await prisma.task.create({
+      data: {
+        content,
+      },
+    });
+    revalidatePath("/tasks");
+    return { message: "success" };
+  } catch (error) {
+    return { message: "error" };
+  }
 };
-
+// Delete Task
 export const deleteTask = async (getData) => {
   const id = getData.get("id");
   await prisma.task.delete({
@@ -29,11 +46,14 @@ export const deleteTask = async (getData) => {
   revalidatePath("tasks");
 };
 
+// Get Single Task
 export const getTask = async (id) => {
   return await prisma.task.findUnique({
     where: { id },
   });
 };
+
+// Edit Task
 export const editTask = async (getData) => {
   const id = await getData.get("id");
   const content = await getData.get("content");

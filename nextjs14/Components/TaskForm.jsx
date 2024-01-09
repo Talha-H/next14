@@ -1,10 +1,39 @@
-import React from "react";
-import { createTask } from "@/utils/actions";
+"use client";
+import React, { useEffect } from "react";
+// import { createTask } from "@/utils/actions";
+import { createCustomTask } from "@/utils/actions";
+import toast from "react-hot-toast";
+import { useFormStatus, useFormState } from "react-dom";
 
+const initialState = {
+  message: null,
+};
 
-const TaskForm = () => {
+const SubmitBtn = () => {
+  const { pending } = useFormStatus();
   return (
-    <form action={createTask}>
+    <button
+      type="submit"
+      className="btn btn-accent join-item"
+      disabled={pending}
+    >
+      {pending ? "pending" : "Create Task"}
+    </button>
+  );
+};
+const TaskForm = () => {
+  const [state, formAction] = useFormState(createCustomTask, initialState);
+  useEffect(() => {
+    if (state.message === "error") {
+      toast.error("There was an error");
+      return;
+    }
+    if (state.message === "success") {
+      toast.success("Task Created");
+    }
+  }, [state]);
+  return (
+    <form action={formAction}>
       <div className="join w-full">
         <input
           type="text"
@@ -13,9 +42,7 @@ const TaskForm = () => {
           name="content"
           required
         />
-        <button type="submit" className="btn btn-accent join-item">
-          Create Task
-        </button>
+        <SubmitBtn />
       </div>
     </form>
   );
