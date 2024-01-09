@@ -8,7 +8,7 @@ const TaskForm = () => {
       <div className="join w-full">
         <input
           type="text"
-          placeholder="type here"
+          placeholder="type here..."
           className="join-item input input-bordered w-full"
           name="content"
           required
