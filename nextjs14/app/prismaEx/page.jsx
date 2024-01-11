@@ -23,7 +23,7 @@ const page = async () => {
   }
   return (
     <div>
-      <h2 className="text-7xl">Prisma</h2>
+      <h2 className="text-5xl text-center">Prisma</h2>
       {tasks.map((task) => {
         return (
           <h1 key={task.id} className="text-2xl py-2">
